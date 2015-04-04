@@ -1,0 +1,28 @@
+{
+  "name": "block",
+  "version": "1.0.0",
+  "description": "Simple boilerplate for a new node.js project.",
+  "main": "app.js",
+  "scripts": {
+    "dependencies": "npm i browserify nodemon stylus clean-css uglifyjs -g",
+    "build-js": "browserify src/js/app.js -o build/js/app.js",
+    "build-min-js": "browserify src/js/app.js | uglifyjs -o build/js/app.min.js",
+    "watch-js": "nodemon -e js -w src/js -x 'npm run build-js'",
+    "build-css": "stylus src/stylus/main.scss build/css/main.css",
+    "build-min-css": "stylus src/stylus/main.scss | clean-css -o build/css/main.min.css",
+    "watch-css": "nodemon -e styl -w src/stylus -x 'npm run build-css'",
+    "build": "npm run build-js & npm run build-css",
+    "watch": "npm run watch-js & npm run watch-css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neurotech/block.git"
+  },
+  "author": "Tim Douglas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neurotech/block/issues"
+  },
+  "homepage": "https://github.com/neurotech/block"
+}
